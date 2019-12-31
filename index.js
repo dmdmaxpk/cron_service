@@ -21,7 +21,7 @@ runTokenRenewalCron  = async() => {
 }
 
 runDailyAmountCron  = async() => {
-  // At every 29th minute, to make sure make two request in an hour
+  // At midnight every day to reset amount spent by customer that day
   new CronJob('0 0 0 * * *',  async() => {
       console.log('Cron - Daily Amount - Executing - ' + (new Date()));
       paywall.resetDailyAmountSpentByUser();
@@ -29,7 +29,7 @@ runDailyAmountCron  = async() => {
 }
 
 runTpsCountCron  = async() => {
-  // At every 29th minute, to make sure make two request in an hour
+  // Every Second to reset TPS count
   new CronJob('* * * * * *',  async() => {
       console.log('Cron - TpsCount - Executing - ' + (new Date()));
       paywall.resetTpsCount();
