@@ -11,7 +11,7 @@ config = {
         paywall_service_url: "http://localhost:5000/"
     },
     staging: {
-        paywall_service_url: "http://localhost:5000/"
+        paywall_service_url: process.env.PW_SERVICE_URL
     },
     production: {
         paywall_service_url: process.env.PW_SERVICE_URL
