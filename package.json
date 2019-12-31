@@ -1,0 +1,24 @@
+{
+  "name": "goonj_cron_service",
+  "version": "1.0.0",
+  "description": "Separate service for executing cron jobs so as to not be affected by horizontal scaling",
+  "main": "index.js",
+  "dependencies": {
+    "cron": "^1.7.2",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.dmdmax.com/goonj/cron_service.git"
+  },
+  "keywords": [
+    "cron",
+    "goonj"
+  ],
+  "author": "hamzashujaat218@gmail.com",
+  "license": "ISC"
+}

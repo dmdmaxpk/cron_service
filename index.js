@@ -1,0 +1,42 @@
+const CronJob = require('cron').CronJob;
+const config = require('./config');
+const services = require('./services');
+const paywall = services.paywall;
+// To generate token to consume telenor dcb apis
+runSubscriptionRenewalCron  = async() => {
+    // At every 5th minute
+    new CronJob('*/5 * * * *',  async() => {
+        console.log('Cron - SubscriptionRenewal - Executing - ' + (new Date()));
+        paywall.subscriptionRenewal();
+      }, null, true, 'America/Los_Angeles');
+}
+
+
+runTokenRenewalCron  = async() => {
+    // At every 29th minute, to make sure make two request in an hour
+    new CronJob('*/29 * * * *',  async() => {
+        console.log('Cron - TokenRefresh - Executing - ' + (new Date()));
+        paywall.tokenRenewal();
+      }, null, true, 'America/Los_Angeles');
+}
+
+runDailyAmountCron  = async() => {
+  // At every 29th minute, to make sure make two request in an hour
+  new CronJob('0 0 0 * * *',  async() => {
+      console.log('Cron - Daily Amount - Executing - ' + (new Date()));
+      paywall.resetDailyAmountSpentByUser();
+    }, null, true, 'America/Los_Angeles');
+}
+
+runTpsCountCron  = async() => {
+  // At every 29th minute, to make sure make two request in an hour
+  new CronJob('* * * * * *',  async() => {
+      console.log('Cron - TpsCount - Executing - ' + (new Date()));
+      paywall.resetTpsCount();
+    }, null, true, 'America/Los_Angeles');
+}
+
+runSubscriptionRenewalCron();
+runTokenRenewalCron();
+runTpsCountCron();
+runDailyAmountCron();
