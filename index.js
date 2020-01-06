@@ -38,7 +38,8 @@ runTpsCountCron  = async() => {
 
 checkLastSeenOfUsers  = async() => {
   // Every Hour to check last seen of all users
-  new CronJob('0 * * * * *',  async() => {
+  // TODO have to change this back to one hour before going to production
+  new CronJob('*/5 * * * * *',  async() => {
       console.log('Cron - To Check Last seen status of users - Executing - ' + (new Date()));
       paywall.resetTpsCount();
     }, null, true, 'America/Los_Angeles');
