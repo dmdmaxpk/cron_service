@@ -34,9 +34,18 @@ resetTpsCount = async () => {
     }
 }
 
+checkLastSeenOfUsers = async () => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
     tokenRenewal: tokenRenewal,
     resetDailyAmountSpentByUser: resetDailyAmountSpentByUser,
-    resetTpsCount: resetTpsCount
+    resetTpsCount: resetTpsCount,
+    checkLastSeenOfUsers: checkLastSeenOfUsers
 } 

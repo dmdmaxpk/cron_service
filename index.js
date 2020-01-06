@@ -36,7 +36,16 @@ runTpsCountCron  = async() => {
     }, null, true, 'America/Los_Angeles');
 }
 
+checkLastSeenOfUsers  = async() => {
+  // Every Hour to check last seen of all users
+  new CronJob('0 * * * * *',  async() => {
+      console.log('Cron - To Check Last seen status of users - Executing - ' + (new Date()));
+      paywall.resetTpsCount();
+    }, null, true, 'America/Los_Angeles');
+}
+
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
 runTpsCountCron();
 runDailyAmountCron();
+checkLastSeenOfUsers();
