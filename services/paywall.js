@@ -36,7 +36,7 @@ resetTpsCount = async () => {
 
 checkLastSeenOfUsers = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
+        let response = await axios.get(config.paywall_service_url + '/cron/checkLastSeen/');
     } catch(er) {
         console.error(er);
     }
