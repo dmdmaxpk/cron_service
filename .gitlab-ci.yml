@@ -3,6 +3,9 @@ stages:
   - staging
   - production
 
+variables:
+  DEPLOYMENT_NAME: cron
+  DOCKER_REGISTRY: 652891063711.dkr.ecr.eu-central-1.amazonaws.com/$DEPLOYMENT_NAME
 
 build:
   stage: build
@@ -11,7 +14,6 @@ build:
     DOCKER_DRIVER: overlay
     DOCKER_HOST: tcp://localhost:2375
     DOCKER_TLS_CERTDIR: ""
-    DOCKER_REGISTRY: 652891063711.dkr.ecr.eu-central-1.amazonaws.com/cron
   services:
     - docker:19.03.1-dind
   before_script:
@@ -25,6 +27,14 @@ build:
   only:
     - tags
 
+staging:
+  stage: staging
+  variables:
+    K8S_NAMESPACE: staging
+  before_script:
+    - null
+  script:
+  - kubectl -n $K8S_NAMESPACE patch deployment $DEPLOYMENT_NAME -p '{"spec":{"template":{"spec":{"containers":[{"name":"'"$DEPLOYMENT_NAME"'","image":"'"$DOCKER_REGISTRY:$CI_COMMIT_TAG"'"}]}}}}'
 
 # # Depends on CLOUDSDK_CORE_PROJECT, CLOUDSDK_CONTAINER_CLUSTER, and CLOUDSDK_COMPUTE_ZONE being set
 # .gcloud: &gcloud
