@@ -9,6 +9,7 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay
+  DOCKER_HOST: tcp://localhost:2375
   DOCKER_REGISTRY: 652891063711.dkr.ecr.eu-central-1.amazonaws.com/cron
 
 before_script:
