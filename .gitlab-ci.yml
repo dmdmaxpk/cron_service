@@ -3,16 +3,19 @@ stages:
   - staging
   - production
 
+
 build:
   stage: build
-  image: docker:dind
-  services:
-    - docker:dind
+  image: docker:19.03.1
   variables:
     DOCKER_DRIVER: overlay
     DOCKER_HOST: tcp://localhost:2375
+    DOCKER_TLS_CERTDIR: ""
     DOCKER_REGISTRY: 652891063711.dkr.ecr.eu-central-1.amazonaws.com/cron
+  services:
+    - docker:19.03.1-dind
   before_script:
+    - docker info
     - apk add --no-cache curl jq python py-pip
     - pip install awscli
   script:
