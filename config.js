@@ -8,7 +8,7 @@ if (!acceptedEnvValues.includes(process.env.NODE_ENV) ) {
 }
 config = {
     development: {
-        paywall_service_url: "http://localhost:5000/"
+        paywall_service_url: "http://localhost:5000"
     },
     staging: {
         paywall_service_url: process.env.PW_SERVICE_URL
