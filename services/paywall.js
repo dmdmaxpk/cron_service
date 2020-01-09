@@ -12,7 +12,7 @@ subscriptionRenewal = async () => {
 
 tokenRenewal = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/tokenRefresh/');
+        let response = await axios.get(config.paywall_worker_url + '/cron/tokenRefresh/');
     } catch(er) {
         console.error(er);
     }
@@ -28,7 +28,7 @@ resetDailyAmountSpentByUser = async () => {
 
 resetTpsCount = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
+        let response = await axios.get(config.paywall_worker_url + '/cron/tpsCountReset/');
     } catch(er) {
         console.error(er);
     }
