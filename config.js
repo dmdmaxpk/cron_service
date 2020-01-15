@@ -8,16 +8,13 @@ if (!acceptedEnvValues.includes(process.env.NODE_ENV) ) {
 }
 config = {
     development: {
-        paywall_service_url: "http://localhost:5000",
-        paywall_worker_url: "http://localhost:5001"
+        paywall_service_url: "http://localhost:5000"
     },
     staging: {
-        paywall_service_url: process.env.PW_SERVICE_URL,
-        paywall_worker_url: process.env.PW_WORKER_URL
+        paywall_service_url: process.env.PW_SERVICE_URL
     },
     production: {
-        paywall_service_url: process.env.PW_SERVICE_URL,
-        paywall_worker_url: process.env.PW_WORKER_URL
+        paywall_service_url: process.env.PW_SERVICE_URL
     }
 }
 
