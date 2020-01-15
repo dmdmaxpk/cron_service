@@ -42,10 +42,20 @@ checkLastSeenOfUsers = async () => {
     }
 }
 
+grayListService = async () => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/grayListService/');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
+
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
     tokenRenewal: tokenRenewal,
     resetDailyAmountSpentByUser: resetDailyAmountSpentByUser,
     resetTpsCount: resetTpsCount,
-    checkLastSeenOfUsers: checkLastSeenOfUsers
+    checkLastSeenOfUsers: checkLastSeenOfUsers,
+    grayListService: grayListService
 } 
