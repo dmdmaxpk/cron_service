@@ -44,6 +44,15 @@ checkLastSeenOfUsers  = async() => {
     }, null, true, 'America/Los_Angeles');
 }
 
+grayListService  = async() => {
+  // Every 55 minutes
+  new CronJob('*/55 * * * *',  async() => {
+      console.log('Cron - To un-gray users that are added in gray list - Executing - ' + (new Date()));
+      paywall.grayListService();
+    }, null, true, 'America/Los_Angeles');
+}
+
+
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
 runTpsCountCron();
