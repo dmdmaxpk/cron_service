@@ -58,3 +58,4 @@ runTokenRenewalCron();
 runTpsCountCron();
 runDailyAmountCron();
 checkLastSeenOfUsers();
+grayListService();
