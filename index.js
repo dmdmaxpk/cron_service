@@ -53,7 +53,7 @@ grayListService  = async() => {
 }
 
 
-runSubscriptionRenewalCron();
+// runSubscriptionRenewalCron();
 runTokenRenewalCron();
 runTpsCountCron();
 runDailyAmountCron();
