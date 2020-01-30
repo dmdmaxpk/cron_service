@@ -54,7 +54,6 @@ production:
     - kubectl -n $K8S_NAMESPACE patch deployment $DEPLOYMENT_NAME -p '{"spec":{"template":{"spec":{"containers":[{"name":"'"$DEPLOYMENT_NAME"'","image":"'"$DOCKER_REGISTRY:$CI_COMMIT_TAG"'"}]}}}}'
   only:
     - tags
-  only:
     - master
 # # Depends on CLOUDSDK_CORE_PROJECT, CLOUDSDK_CONTAINER_CLUSTER, and CLOUDSDK_COMPUTE_ZONE being set
 # .gcloud: &gcloud
