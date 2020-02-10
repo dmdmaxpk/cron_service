@@ -1,6 +1,6 @@
 {
   "name": "goonj_cron_service",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Separate service for executing cron jobs so as to not be affected by horizontal scaling",
   "main": "index.js",
   "dependencies": {
