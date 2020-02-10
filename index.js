@@ -52,6 +52,14 @@ grayListService  = async() => {
     }, null, true, 'America/Los_Angeles');
 }
 
+generateDailyReport  = async() => {
+  // Every 55 minutes
+  new CronJob(' 0 0 0 * * *',  async() => {
+      console.log('Generate daily report and send some stats by email to management' + (new Date()));
+      paywall.generateDailyReport();
+    }, null, true, 'America/Los_Angeles');
+}
+
 
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
@@ -59,3 +67,4 @@ runTpsCountCron();
 runDailyAmountCron();
 checkLastSeenOfUsers();
 grayListService();
+generateDailyReport()
