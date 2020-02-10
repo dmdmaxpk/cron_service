@@ -50,6 +50,14 @@ grayListService = async () => {
     }
 }
 
+generateDailyReport = async () => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/generateDailyReport/');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -57,5 +65,6 @@ module.exports = {
     resetDailyAmountSpentByUser: resetDailyAmountSpentByUser,
     resetTpsCount: resetTpsCount,
     checkLastSeenOfUsers: checkLastSeenOfUsers,
-    grayListService: grayListService
+    grayListService: grayListService,
+    generateDailyReport: generateDailyReport
 } 
