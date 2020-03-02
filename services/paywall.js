@@ -58,6 +58,14 @@ generateDailyReport = async () => {
     }
 }
 
+hourlyBillingCheck = async () => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/hourlyBillingReport/');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -66,5 +74,6 @@ module.exports = {
     resetTpsCount: resetTpsCount,
     checkLastSeenOfUsers: checkLastSeenOfUsers,
     grayListService: grayListService,
-    generateDailyReport: generateDailyReport
+    generateDailyReport: generateDailyReport,
+    hourlyBillingCheck: hourlyBillingCheck
 } 

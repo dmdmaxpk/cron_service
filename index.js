@@ -60,6 +60,14 @@ generateDailyReport  = async() => {
     }, null, true, 'America/Los_Angeles');
 }
 
+billingMonitoringCron = async() => {
+  console.log("Reacehd");
+  new CronJob('0 * * * *',  async() => {
+    console.log('Run every hour and check billing stats' + (new Date()));
+    paywall.hourlyBillingCheck();
+  }, null, true, 'America/Los_Angeles');
+}
+
 
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
@@ -67,4 +75,5 @@ runTpsCountCron();
 runDailyAmountCron();
 checkLastSeenOfUsers();
 grayListService();
-generateDailyReport()
+generateDailyReport();
+billingMonitoringCron();
