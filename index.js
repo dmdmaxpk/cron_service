@@ -62,7 +62,7 @@ generateDailyReport  = async() => {
 
 billingMonitoringCron = async() => {
   console.log("Reacehd");
-  new CronJob('* * * * * *',  async() => {
+  new CronJob('0 * * * *',  async() => {
     console.log('Run every hour and check billing stats' + (new Date()));
     paywall.hourlyBillingCheck();
   }, null, true, 'America/Los_Angeles');
