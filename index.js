@@ -54,7 +54,7 @@ grayListService  = async() => {
 
 generateDailyReport  = async() => {
     // 17:00 in America/Los_Angeles means 5:00 AM sharp in Pakistan
-  new CronJob('30 16 * * *',  async() => {
+  new CronJob('2 17 * * *',  async() => {
       console.log('Generate daily report and send some stats by email to management' + (new Date()));
       paywall.generateDailyReport();
     }, null, true, 'America/Los_Angeles');
