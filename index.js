@@ -68,6 +68,14 @@ billingMonitoringCron = async() => {
   }, null, true, 'America/Los_Angeles');
 }
 
+markRenewableUsersCron = async() => {
+  console.log("Reacehd MarkRenewableUsersCron");
+  new CronJob('5 * * * *',  async() => {
+    console.log('Run every hour and checkif its time for running the billing cycle' + (new Date()));
+    paywall.markRenewableUsersCron();
+  }, null, true, 'America/Los_Angeles');
+}
+
 
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
@@ -77,3 +85,4 @@ checkLastSeenOfUsers();
 grayListService();
 generateDailyReport();
 billingMonitoringCron();
+markRenewableUsersCron();

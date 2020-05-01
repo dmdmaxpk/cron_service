@@ -66,6 +66,14 @@ hourlyBillingCheck = async () => {
     }
 }
 
+markRenewableUsersCron = async() => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/markRenewableUsers/');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -75,5 +83,6 @@ module.exports = {
     checkLastSeenOfUsers: checkLastSeenOfUsers,
     grayListService: grayListService,
     generateDailyReport: generateDailyReport,
-    hourlyBillingCheck: hourlyBillingCheck
+    hourlyBillingCheck: hourlyBillingCheck,
+    markRenewableUsersCron: markRenewableUsersCron
 } 
