@@ -2,6 +2,7 @@ const CronJob = require('cron').CronJob;
 const config = require('./config');
 const services = require('./services');
 const paywall = services.paywall;
+
 // To generate token to consume telenor dcb apis
 runSubscriptionRenewalCron  = async() => {
     // At every 5th minute
@@ -76,6 +77,30 @@ markRenewableUsersCron = async() => {
   }, null, true, 'America/Los_Angeles');
 }
 
+sendReportsEveryThreeDays = async() => {
+  // Run at 01:00 AM every 3 days
+  console.log("sendReportsEveryThreeDays");
+  new CronJob('0 1 */4 * *',  async() => {
+    paywall.sendReportsEveryThreeDays();
+  }, null, true, 'America/Los_Angeles');
+}
+
+sendReportsEveryWeek = async() => {
+  // Run at 01:00 AM every 7 days
+  console.log("sendReportsEveryWeek");
+  new CronJob('0 1 */8 * *',  async() => {
+    paywall.sendReportsEveryWeek();
+  }, null, true, 'America/Los_Angeles');
+}
+
+sendReportsEveryMonth = async() => {
+  // Run at 01:00 AM every 1st of month
+  console.log("sendReportsEveryMonth");
+  new CronJob('0 1 1 * *',  async() => {
+    paywall.sendReportsEveryMonth();
+  }, null, true, 'America/Los_Angeles');
+}
+
 
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
@@ -86,3 +111,6 @@ grayListService();
 generateDailyReport();
 billingMonitoringCron();
 markRenewableUsersCron();
+sendReportsEveryThreeDays();
+sendReportsEveryWeek();
+sendReportsEveryMonth();

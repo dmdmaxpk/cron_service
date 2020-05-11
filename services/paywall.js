@@ -74,6 +74,30 @@ markRenewableUsersCron = async() => {
     }
 }
 
+sendReportsEveryThreeDays = async() => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryThreeDays');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
+sendReportsEveryWeek = async() => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryWeek');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
+sendReportsEveryMonth = async() => {
+    try {
+        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryMonth');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -84,5 +108,9 @@ module.exports = {
     grayListService: grayListService,
     generateDailyReport: generateDailyReport,
     hourlyBillingCheck: hourlyBillingCheck,
-    markRenewableUsersCron: markRenewableUsersCron
+    markRenewableUsersCron: markRenewableUsersCron,
+    
+    sendReportsEveryThreeDays: sendReportsEveryThreeDays,
+    sendReportsEveryWeek: sendReportsEveryWeek,
+    sendReportsEveryMonth: sendReportsEveryMonth
 } 
