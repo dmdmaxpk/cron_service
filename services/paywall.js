@@ -20,7 +20,8 @@ tokenRenewal = async () => {
 
 resetDailyAmountSpentByUser = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/dailyAmoutReset/');
+        await axios.get(config.worker_service_url + '/cron/dailyAmountReset');
+        await axios.get(config.paywall_service_url + '/cron/dailyAmoutReset');
     } catch(er) {
         console.error(er);
     }
