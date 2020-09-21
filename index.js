@@ -107,7 +107,7 @@ runTokenRenewalCron();
 runTpsCountCron();
 runDailyAmountCron();
 checkLastSeenOfUsers();
-grayListService();
+//grayListService();
 generateDailyReport();
 billingMonitoringCron();
 markRenewableUsersCron();
