@@ -103,7 +103,7 @@ sendReportsEveryMonth = async() => {
 
 rabbitMqMonitoring = async() => {
     try {
-        await axios.get(config.paywall_service_url + '/cron/rabbitMqMonitoring');
+        let response = await axios.get(config.paywall_service_url + '/cron/rabbitMqMonitoring');
     } catch(er) {
         console.error(er);
     }
