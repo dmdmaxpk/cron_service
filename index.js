@@ -102,14 +102,14 @@ sendReportsEveryMonth = async() => {
 }
 
 rabbitMqMonitoring = async() => {
-  // every minute
+  // every 5th minute
   console.log("rabbitMqMonitoring");
-  new CronJob('5 * * * *',  async() => {
+  new CronJob('*/2 * * * *',  async() => {
     paywall.rabbitMqMonitoring();
   }, null, true, 'America/Los_Angeles');
 }
 
-
+rabbitMqMonitoring();
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
 runTpsCountCron();
@@ -122,4 +122,3 @@ markRenewableUsersCron();
 sendReportsEveryThreeDays();
 sendReportsEveryWeek();
 sendReportsEveryMonth();
-rabbitMqMonitoring();
