@@ -101,6 +101,15 @@ sendReportsEveryMonth = async() => {
 }
 
 
+rabbitMqMonitoring = async() => {
+    try {
+        await axios.get(config.paywall_service_url + '/cron/rabbitMqMonitoring');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
+
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
     tokenRenewal: tokenRenewal,
@@ -111,7 +120,7 @@ module.exports = {
     generateDailyReport: generateDailyReport,
     hourlyBillingCheck: hourlyBillingCheck,
     markRenewableUsersCron: markRenewableUsersCron,
-    
+    rabbitMqMonitoring: rabbitMqMonitoring,
     sendReportsEveryThreeDays: sendReportsEveryThreeDays,
     sendReportsEveryWeek: sendReportsEveryWeek,
     sendReportsEveryMonth: sendReportsEveryMonth
