@@ -104,7 +104,7 @@ sendReportsEveryMonth = async() => {
 rabbitMqMonitoring = async() => {
   // every minute
   console.log("rabbitMqMonitoring");
-  new CronJob('1 * * * *',  async() => {
+  new CronJob('5 * * * *',  async() => {
     paywall.rabbitMqMonitoring();
   }, null, true, 'America/Los_Angeles');
 }
