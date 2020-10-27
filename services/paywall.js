@@ -109,6 +109,14 @@ rabbitMqMonitoring = async() => {
     }
 }
 
+paywallReportingCron = async() => {
+    try {
+        let response = await axios.get('http://3.120.18.133:3006/cron/cron-compute-daily-data-reports');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -118,6 +126,7 @@ module.exports = {
     checkLastSeenOfUsers: checkLastSeenOfUsers,
     grayListService: grayListService,
     generateDailyReport: generateDailyReport,
+    paywallReportingCron: paywallReportingCron,
     hourlyBillingCheck: hourlyBillingCheck,
     markRenewableUsersCron: markRenewableUsersCron,
     rabbitMqMonitoring: rabbitMqMonitoring,

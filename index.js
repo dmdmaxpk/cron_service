@@ -109,6 +109,13 @@ rabbitMqMonitoring = async() => {
   }, null, true, 'America/Los_Angeles');
 }
 
+paywallReportingCron = async() => {
+  new CronJob('2 20 * * *',  async() => {
+    console.log('paywallReportingCron' + (new Date()));
+    paywall.paywallReportingCron();
+  }, null, true, 'America/Los_Angeles');
+}
+
 rabbitMqMonitoring();
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
