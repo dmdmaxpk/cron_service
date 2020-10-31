@@ -5,8 +5,8 @@ const paywall = services.paywall;
 
 // To generate token to consume telenor dcb apis
 runSubscriptionRenewalCron  = async() => {
-    // At every 5th minute
-    new CronJob('*/5 * * * *',  async() => {
+    // At every 15th minute
+    new CronJob('*/15 * * * *',  async() => {
         console.log('Cron - SubscriptionRenewal - Executing - ' + (new Date()));
         paywall.subscriptionRenewal();
       }, null, true, 'America/Los_Angeles');
