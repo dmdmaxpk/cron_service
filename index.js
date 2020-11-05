@@ -110,7 +110,7 @@ rabbitMqMonitoring = async() => {
 }
 
 paywallReportingCron = async() => {
-  new CronJob('2 20 * * *',  async() => {
+  new CronJob('15 11 * * *',  async() => {
     console.log('paywallReportingCron' + (new Date()));
     paywall.paywallReportingCron();
   }, null, true, 'America/Los_Angeles');
@@ -129,3 +129,4 @@ markRenewableUsersCron();
 sendReportsEveryThreeDays();
 sendReportsEveryWeek();
 sendReportsEveryMonth();
+paywallReportingCron();
