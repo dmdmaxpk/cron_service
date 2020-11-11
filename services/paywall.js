@@ -4,7 +4,7 @@ const config = require("../config");
 
 subscriptionRenewal = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/subscriptionRenewal/');
+        axios.get(config.paywall_service_url + '/cron/subscriptionRenewal/');
     } catch(er) {
         console.error(er);
     } 
@@ -12,7 +12,7 @@ subscriptionRenewal = async () => {
 
 tokenRenewal = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/tokenRefresh/');
+        axios.get(config.paywall_service_url + '/cron/tokenRefresh/');
     } catch(er) {
         console.error(er);
     }
@@ -38,7 +38,7 @@ resetTpsCount = async () => {
 
 checkLastSeenOfUsers = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/checkLastSeenOfUsers/');
+        axios.get(config.paywall_service_url + '/cron/checkLastSeenOfUsers/');
     } catch(er) {
         console.error(er);
     }
@@ -46,7 +46,7 @@ checkLastSeenOfUsers = async () => {
 
 grayListService = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/grayListService/');
+        axios.get(config.paywall_service_url + '/cron/grayListService/');
     } catch(er) {
         console.error(er);
     }
@@ -54,7 +54,7 @@ grayListService = async () => {
 
 generateDailyReport = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/generateDailyReport/');
+        axios.get(config.paywall_service_url + '/cron/generateDailyReport/');
     } catch(er) {
         console.error(er);
     }
@@ -62,7 +62,7 @@ generateDailyReport = async () => {
 
 hourlyBillingCheck = async () => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/hourlyBillingReport/');
+        axios.get(config.paywall_service_url + '/cron/hourlyBillingReport/');
     } catch(er) {
         console.error(er);
     }
@@ -70,7 +70,7 @@ hourlyBillingCheck = async () => {
 
 markRenewableUsersCron = async() => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/markRenewableUsers/');
+        axios.get(config.paywall_service_url + '/cron/markRenewableUsers/');
     } catch(er) {
         console.error(er);
     }
@@ -78,7 +78,7 @@ markRenewableUsersCron = async() => {
 
 sendReportsEveryThreeDays = async() => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryThreeDays');
+        axios.get(config.paywall_service_url + '/cron/sendReportsEveryThreeDays');
     } catch(er) {
         console.error(er);
     }
@@ -86,7 +86,7 @@ sendReportsEveryThreeDays = async() => {
 
 sendReportsEveryWeek = async() => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryWeek');
+        axios.get(config.paywall_service_url + '/cron/sendReportsEveryWeek');
     } catch(er) {
         console.error(er);
     }
@@ -94,7 +94,7 @@ sendReportsEveryWeek = async() => {
 
 sendReportsEveryMonth = async() => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/sendReportsEveryMonth');
+        axios.get(config.paywall_service_url + '/cron/sendReportsEveryMonth');
     } catch(er) {
         console.error(er);
     }
@@ -103,7 +103,7 @@ sendReportsEveryMonth = async() => {
 
 rabbitMqMonitoring = async() => {
     try {
-        let response = await axios.get(config.paywall_service_url + '/cron/rabbitMqMonitoring');
+        axios.get(config.paywall_service_url + '/cron/rabbitMqMonitoring');
     } catch(er) {
         console.error(er);
     }
@@ -111,7 +111,7 @@ rabbitMqMonitoring = async() => {
 
 paywallReportingCron = async() => {
     try {
-        let response = await axios.get('http://3.120.18.133:3006/cron/cron-compute-daily-data-reports');
+        axios.get('http://3.120.18.133:3006/cron/cron-compute-daily-data-reports');
     } catch(er) {
         console.error(er);
     }
