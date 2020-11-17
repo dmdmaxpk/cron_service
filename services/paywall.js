@@ -60,6 +60,14 @@ generateDailyReport = async () => {
     }
 }
 
+computeDailyReport = async () => {
+    try {
+        axios.get('http://3.120.18.133:3006/cron/compute-daily-subscription-reports');
+    } catch(er) {
+        console.error(er);
+    }
+}
+
 hourlyBillingCheck = async () => {
     try {
         axios.get(config.paywall_service_url + '/cron/hourlyBillingReport/');
@@ -126,6 +134,7 @@ module.exports = {
     checkLastSeenOfUsers: checkLastSeenOfUsers,
     grayListService: grayListService,
     generateDailyReport: generateDailyReport,
+    computeDailyReport: computeDailyReport,
     paywallReportingCron: paywallReportingCron,
     hourlyBillingCheck: hourlyBillingCheck,
     markRenewableUsersCron: markRenewableUsersCron,
