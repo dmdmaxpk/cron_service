@@ -4,7 +4,7 @@ const config = require("../config");
 
 subscriptionRenewal = async () => {
     try {
-        axios.get(config.paywall_producer_service_url + '/cron/subscriptionRenewal/');
+        axios.get(config.paywall_service_url + '/cron/subscriptionRenewal/');
     } catch(er) {
         console.error(er);
     } 
