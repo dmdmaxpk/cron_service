@@ -21,7 +21,7 @@ tokenRenewal = async () => {
 resetDailyAmountSpentByUser = async () => {
     try {
         axios.get(config.paywall_service_url + '/cron/dailyAmoutReset');
-        axios.get('http://10.0.1.21:5001/cron/dailyAmountReset');
+        axios.get('http://10.0.1.76:5001/cron/dailyAmountReset');
     } catch(er) {
         console.error(er);
     }
@@ -29,7 +29,7 @@ resetDailyAmountSpentByUser = async () => {
 
 resetTpsCount = async () => {
     try {
-        axios.get('http://10.0.1.21:5001/cron/tpsCountReset');
+        axios.get('http://10.0.1.76:5001/cron/tpsCountReset');
         axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
     } catch(er) {
         console.error(er);
