@@ -124,6 +124,13 @@ paywallReportingCron = async() => {
   }, null, true, 'Asia/Karachi');
 }
 
+preRenewalSubscriptions = async() => {
+    new CronJob('0 1 * * *',  async() => {
+        console.log('preRenewalSubscriptions' + (new Date()));
+        paywall.preRenewalSubscriptions();
+    }, null, true, 'Asia/Karachi');
+}
+
 rabbitMqMonitoring();
 runSubscriptionRenewalCron();
 runTokenRenewalCron();
@@ -139,3 +146,4 @@ sendReportsEveryThreeDays();
 sendReportsEveryWeek();
 sendReportsEveryMonth();
 paywallReportingCron();
+preRenewalSubscriptions();
