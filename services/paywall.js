@@ -125,6 +125,13 @@ paywallReportingCron = async() => {
     }
 }
 
+preRenewalSubscriptions = async() => {
+    try {
+        axios.get('http://3.120.18.133:3006/cron/preRenewalSubscriptions');
+    } catch(er) {
+        console.error(er);
+    }
+}
 
 module.exports = {
     subscriptionRenewal: subscriptionRenewal,
@@ -141,5 +148,6 @@ module.exports = {
     rabbitMqMonitoring: rabbitMqMonitoring,
     sendReportsEveryThreeDays: sendReportsEveryThreeDays,
     sendReportsEveryWeek: sendReportsEveryWeek,
-    sendReportsEveryMonth: sendReportsEveryMonth
-} 
+    sendReportsEveryMonth: sendReportsEveryMonth,
+    preRenewalSubscriptions: preRenewalSubscriptions
+}
