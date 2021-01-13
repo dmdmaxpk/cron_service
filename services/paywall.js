@@ -127,6 +127,7 @@ paywallReportingCron = async() => {
 
 preRenewalSubscriptions = async() => {
     try {
+        
         axios.get('http://3.120.18.133:3006/cron/preRenewalSubscriptions');
     } catch(er) {
         console.error(er);
