@@ -26,7 +26,7 @@ runDailyAmountCron  = async() => {
   new CronJob('0 0 0 * * *',  async() => {
       console.log('Cron - Daily Amount - Executing - ' + (new Date()));
       paywall.resetDailyAmountSpentByUser();
-    }, null, true, 'America/Los_Angeles');
+    }, null, true, 'Asia/Karachi');
 }
 
 runTpsCountCron  = async() => {
