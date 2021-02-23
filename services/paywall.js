@@ -128,7 +128,7 @@ paywallReportingCron = async() => {
 preRenewalSubscriptions = async() => {
     try {
         
-        axios.get(config.paywall_service_url + '/cron/preRenewalSubscriptions');
+        // axios.get(config.paywall_service_url + '/cron/preRenewalSubscriptions');
     } catch(er) {
         console.error(er);
     }
