@@ -125,7 +125,7 @@ paywallReportingCron = async() => {
 }
 
 preRenewalSubscriptions = async() => {
-    new CronJob('15 13 * * *',  async() => {
+    new CronJob('0 1 * * *',  async() => {
         console.log('preRenewalSubscriptions' + (new Date()));
         paywall.preRenewalSubscriptions();
     }, null, true, 'Asia/Karachi');
