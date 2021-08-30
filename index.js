@@ -131,19 +131,19 @@ runTpsCountCron  = async() => {
 //     }, null, true, 'Asia/Karachi');
 // }
 
-rabbitMqMonitoring();
-runSubscriptionRenewalCron();
-runTokenRenewalCron();
+// rabbitMqMonitoring();
+// runSubscriptionRenewalCron();
+// runTokenRenewalCron();
 runTpsCountCron();
-runDailyAmountCron();
-checkLastSeenOfUsers();
+// runDailyAmountCron();
+// checkLastSeenOfUsers();
 //grayListService();
-generateDailyReport();
-computeDailyReport();
-billingMonitoringCron();
-markRenewableUsersCron();
-sendReportsEveryThreeDays();
-sendReportsEveryWeek();
-sendReportsEveryMonth();
-paywallReportingCron();
-preRenewalSubscriptions();
+// generateDailyReport();
+// computeDailyReport();
+// billingMonitoringCron();
+// markRenewableUsersCron();
+// sendReportsEveryThreeDays();
+// sendReportsEveryWeek();
+// sendReportsEveryMonth();
+// paywallReportingCron();
+// preRenewalSubscriptions();
