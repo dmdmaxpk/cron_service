@@ -29,8 +29,8 @@ resetDailyAmountSpentByUser = async () => {
 
 resetTpsCount = async () => {
     try {
-        axios.get('http://10.0.1.76:5001/cron/tpsCountReset');
-        axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
+        axios.get('http://localhost:3006/tpsreset');
+        // axios.get(config.paywall_service_url + '/cron/tpsCountReset/');
     } catch(er) {
         console.error(er);
     }
