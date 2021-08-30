@@ -31,7 +31,7 @@ const paywall = services.paywall;
 
 runTpsCountCron  = async() => {
   // Every Second to reset TPS count
-  new CronJob('*/2 * * * * *',  async() => {
+  new CronJob('* * * * * *',  async() => {
       console.log('Cron - TpsCount - Executing - ' + (new Date()));
       paywall.resetTpsCount();
     }, null, true, 'America/Los_Angeles');
