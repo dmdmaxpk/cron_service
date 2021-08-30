@@ -1,4 +1,4 @@
-let enviornment = process.env.NODE_ENV || 'development';
+let enviornment = process.env.NODE_ENV || 'production';
 console.log("enviornment",enviornment);
 
 let acceptedEnvValues = ["development", "staging", "production"];
@@ -10,16 +10,6 @@ if (!acceptedEnvValues.includes(process.env.NODE_ENV) ) {
 }
 
 config = {
-    development: {
-        paywall_service_url: "http://localhost:5000",
-        worker_service_url: "http://localhost:5001",
-        paywall_producer_service_url: "http://10.0.1.76:5010"
-    },
-    staging: {
-        paywall_service_url: process.env.PW_SERVICE_URL,
-        worker_service_url: process.env.PW_WORKER_SERVICE_URL,
-        paywall_producer_service_url: "http://10.0.1.76:5010"
-    },
     production: {
         paywall_service_url: process.env.PW_SERVICE_URL,
         worker_service_url: process.env.PW_WORKER_SERVICE_URL,
