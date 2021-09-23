@@ -4,30 +4,30 @@ const services = require('./services');
 const paywall = services.paywall;
 
 // To generate token to consume telenor dcb apis
-runSubscriptionRenewalCron  = async() => {
-    // At every 3rd minute,
-    new CronJob('*/3 * * * *',  async() => {
-        console.log('Cron - SubscriptionRenewal - Executing - ' + (new Date()));
-        paywall.subscriptionRenewal();
-      }, null, true, 'America/Los_Angeles');
-}
+// runSubscriptionRenewalCron  = async() => {
+//     // At every 3rd minute,
+//     new CronJob('*/3 * * * *',  async() => {
+//         console.log('Cron - SubscriptionRenewal - Executing - ' + (new Date()));
+//         paywall.subscriptionRenewal();
+//       }, null, true, 'America/Los_Angeles');
+// }
 
 
-runTokenRenewalCron  = async() => {
-    // At every 29th minute, to make sure make two request in an hour
-    new CronJob('*/29 * * * *',  async() => {
-        console.log('Cron - TokenRefresh - Executing - ' + (new Date()));
-        paywall.tokenRenewal();
-      }, null, true, 'America/Los_Angeles');
-}
+// runTokenRenewalCron  = async() => {
+//     // At every 29th minute, to make sure make two request in an hour
+//     new CronJob('*/29 * * * *',  async() => {
+//         console.log('Cron - TokenRefresh - Executing - ' + (new Date()));
+//         paywall.tokenRenewal();
+//       }, null, true, 'America/Los_Angeles');
+// }
 
-runDailyAmountCron  = async() => {
-  // At midnight every day to reset amount spent by customer that day
-  new CronJob('0 0 0 * * *',  async() => {
-      console.log('Cron - Daily Amount - Executing - ' + (new Date()));
-      paywall.resetDailyAmountSpentByUser();
-    }, null, true, 'Asia/Karachi');
-}
+// runDailyAmountCron  = async() => {
+//   // At midnight every day to reset amount spent by customer that day
+//   new CronJob('0 0 0 * * *',  async() => {
+//       console.log('Cron - Daily Amount - Executing - ' + (new Date()));
+//       paywall.resetDailyAmountSpentByUser();
+//     }, null, true, 'Asia/Karachi');
+// }
 
 runTpsCountCron  = async() => {
   // Every Second to reset TPS count
@@ -37,113 +37,113 @@ runTpsCountCron  = async() => {
     }, null, true, 'America/Los_Angeles');
 }
 
-checkLastSeenOfUsers  = async() => {
-  // Every 55 minutes to check last seen of all users
-  new CronJob('*/55 * * * *',  async() => {
-      console.log('Cron - To Check Last seen status of users - Executing - ' + (new Date()));
-      paywall.checkLastSeenOfUsers();
-    }, null, true, 'America/Los_Angeles');
-}
+// checkLastSeenOfUsers  = async() => {
+//   // Every 55 minutes to check last seen of all users
+//   new CronJob('*/55 * * * *',  async() => {
+//       console.log('Cron - To Check Last seen status of users - Executing - ' + (new Date()));
+//       paywall.checkLastSeenOfUsers();
+//     }, null, true, 'America/Los_Angeles');
+// }
 
-grayListService  = async() => {
-  // Every 55 minutes
-  new CronJob('*/59 * * * *',  async() => {
-      console.log('Cron - To un-gray users that are added in gray list - Executing - ' + (new Date()));
-      paywall.grayListService();
-    }, null, true, 'America/Los_Angeles');
-}
+// grayListService  = async() => {
+//   // Every 55 minutes
+//   new CronJob('*/59 * * * *',  async() => {
+//       console.log('Cron - To un-gray users that are added in gray list - Executing - ' + (new Date()));
+//       paywall.grayListService();
+//     }, null, true, 'America/Los_Angeles');
+// }
 
-generateDailyReport  = async() => {
-    // 17:00 in America/Los_Angeles means 5:30 AM sharp in Pakistan
-  new CronJob('30 17 * * *',  async() => {
-      console.log('Generate daily report and send some stats by email to management' + (new Date()));
-      paywall.generateDailyReport();
-    }, null, true, 'America/Los_Angeles');
-}
+// generateDailyReport  = async() => {
+//     // 17:00 in America/Los_Angeles means 5:30 AM sharp in Pakistan
+//   new CronJob('30 17 * * *',  async() => {
+//       console.log('Generate daily report and send some stats by email to management' + (new Date()));
+//       paywall.generateDailyReport();
+//     }, null, true, 'America/Los_Angeles');
+// }
 
-computeDailyReport  = async() => {
-  // 16:58 in America/Los_Angeles means 4:58 AM sharp in Pakistan
-  new CronJob('58 4 * * *',  async() => {
-    console.log('Compute daily reports' + (new Date()));
-    paywall.computeDailyReport();
-  }, null, true, 'Asia/Karachi');
-}
+// computeDailyReport  = async() => {
+//   // 16:58 in America/Los_Angeles means 4:58 AM sharp in Pakistan
+//   new CronJob('58 4 * * *',  async() => {
+//     console.log('Compute daily reports' + (new Date()));
+//     paywall.computeDailyReport();
+//   }, null, true, 'Asia/Karachi');
+// }
 
-billingMonitoringCron = async() => {
-  console.log("Reacehd");
-  new CronJob('0 * * * *',  async() => {
-    console.log('Run every hour and check billing stats' + (new Date()));
-    paywall.hourlyBillingCheck();
-  }, null, true, 'America/Los_Angeles');
-}
+// billingMonitoringCron = async() => {
+//   console.log("Reacehd");
+//   new CronJob('0 * * * *',  async() => {
+//     console.log('Run every hour and check billing stats' + (new Date()));
+//     paywall.hourlyBillingCheck();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-markRenewableUsersCron = async() => {
-  console.log("Reacehd MarkRenewableUsersCron");
-  new CronJob('5 * * * *',  async() => {
-    console.log('Run every hour and checkif its time for running the billing cycle' + (new Date()));
-    paywall.markRenewableUsersCron();
-  }, null, true, 'America/Los_Angeles');
-}
+// markRenewableUsersCron = async() => {
+//   console.log("Reacehd MarkRenewableUsersCron");
+//   new CronJob('5 * * * *',  async() => {
+//     console.log('Run every hour and checkif its time for running the billing cycle' + (new Date()));
+//     paywall.markRenewableUsersCron();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-sendReportsEveryThreeDays = async() => {
-  // Run at 01:00 AM every 3 days
-  console.log("sendReportsEveryThreeDays");
-  new CronJob('0 1 */4 * *',  async() => {
-    paywall.sendReportsEveryThreeDays();
-  }, null, true, 'America/Los_Angeles');
-}
+// sendReportsEveryThreeDays = async() => {
+//   // Run at 01:00 AM every 3 days
+//   console.log("sendReportsEveryThreeDays");
+//   new CronJob('0 1 */4 * *',  async() => {
+//     paywall.sendReportsEveryThreeDays();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-sendReportsEveryWeek = async() => {
-  // Run at 01:00 AM every 7 days
-  console.log("sendReportsEveryWeek");
-  new CronJob('0 1 */8 * *',  async() => {
-    paywall.sendReportsEveryWeek();
-  }, null, true, 'America/Los_Angeles');
-}
+// sendReportsEveryWeek = async() => {
+//   // Run at 01:00 AM every 7 days
+//   console.log("sendReportsEveryWeek");
+//   new CronJob('0 1 */8 * *',  async() => {
+//     paywall.sendReportsEveryWeek();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-sendReportsEveryMonth = async() => {
-  // Run at 01:00 AM every 1st of month
-  console.log("sendReportsEveryMonth");
-  new CronJob('0 1 1 * *',  async() => {
-    paywall.sendReportsEveryMonth();
-  }, null, true, 'America/Los_Angeles');
-}
+// sendReportsEveryMonth = async() => {
+//   // Run at 01:00 AM every 1st of month
+//   console.log("sendReportsEveryMonth");
+//   new CronJob('0 1 1 * *',  async() => {
+//     paywall.sendReportsEveryMonth();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-rabbitMqMonitoring = async() => {
-  // every 5th minute
-  console.log("rabbitMqMonitoring");
-  new CronJob('*/10 * * * *',  async() => {
-    paywall.rabbitMqMonitoring();
-  }, null, true, 'America/Los_Angeles');
-}
+// rabbitMqMonitoring = async() => {
+//   // every 5th minute
+//   console.log("rabbitMqMonitoring");
+//   new CronJob('*/10 * * * *',  async() => {
+//     paywall.rabbitMqMonitoring();
+//   }, null, true, 'America/Los_Angeles');
+// }
 
-paywallReportingCron = async() => {
-  new CronJob('5 8 * * *',  async() => {
-    console.log('paywallReportingCron' + (new Date()));
-    paywall.paywallReportingCron();
-  }, null, true, 'Asia/Karachi');
-}
+// paywallReportingCron = async() => {
+//   new CronJob('5 8 * * *',  async() => {
+//     console.log('paywallReportingCron' + (new Date()));
+//     paywall.paywallReportingCron();
+//   }, null, true, 'Asia/Karachi');
+// }
 
-preRenewalSubscriptions = async() => {
-    new CronJob('0 10 * * *',  async() => {
-        console.log('preRenewalSubscriptions' + (new Date()));
-        paywall.preRenewalSubscriptions();
-    }, null, true, 'Asia/Karachi');
-}
+// preRenewalSubscriptions = async() => {
+//     new CronJob('0 10 * * *',  async() => {
+//         console.log('preRenewalSubscriptions' + (new Date()));
+//         paywall.preRenewalSubscriptions();
+//     }, null, true, 'Asia/Karachi');
+// }
 
-rabbitMqMonitoring();
-runSubscriptionRenewalCron();
-runTokenRenewalCron();
+// rabbitMqMonitoring();
+// runSubscriptionRenewalCron();
+// runTokenRenewalCron();
 runTpsCountCron();
-runDailyAmountCron();
-checkLastSeenOfUsers();
+// runDailyAmountCron();
+// checkLastSeenOfUsers();
 //grayListService();
-generateDailyReport();
-computeDailyReport();
-billingMonitoringCron();
-markRenewableUsersCron();
-sendReportsEveryThreeDays();
-sendReportsEveryWeek();
-sendReportsEveryMonth();
-paywallReportingCron();
-preRenewalSubscriptions();
+// generateDailyReport();
+// computeDailyReport();
+// billingMonitoringCron();
+// markRenewableUsersCron();
+// sendReportsEveryThreeDays();
+// sendReportsEveryWeek();
+// sendReportsEveryMonth();
+// paywallReportingCron();
+// preRenewalSubscriptions();
